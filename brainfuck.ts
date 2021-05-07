@@ -35,4 +35,55 @@ class Interpreter {
         this.pointer += 1;
         console.log(char);
     }
+
+    loopStart() {
+        if(this.memory[this.pointer] != 0) return this.pointer += 1;
+        
+        while(this.code.charAt(this.instruction_pointer) != "]") {
+            this.instruction_pointer += 1;
+            this.executeInstruction();
+        }
+    }
+
+    loopEnd() {
+        if(this.memory[this.pointer] == 0) return this.pointer += 1;
+
+        while(this.code.charAt(this.instruction_pointer) != "[") {
+            this.instruction_pointer -= 1;
+        }
+    }
+
+    executeInstruction() {
+        let instruction = this.code.charAt(this.instruction_pointer);
+
+        switch(instruction) {
+            case ">":
+                this.moveRight();
+                break;
+            case "<":
+                this.moveLeft();
+                break;
+            case "+":
+                this.increment();
+                break;
+            case "-":
+                this.decrement();
+                break;
+            case ".":
+                this.readChar();
+                break;
+            case "[":
+                this.loopStart();
+                break;
+            case "]":
+                this.loopEnd();
+                break;
+        }
+
+        this.instruction_pointer += 1;
+
+        if(this.code.charAt(this.instruction_pointer) == "") return
+
+        this.executeInstruction();
+    }
 }
