@@ -28,6 +28,7 @@ class Interpreter {
 
     readChar() {
         let char = String.fromCharCode(this.memory[this.pointer]);
+        this.pointer += 1;
         console.log(char);
     }
 }
