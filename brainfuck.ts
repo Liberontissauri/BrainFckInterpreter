@@ -25,4 +25,9 @@ class Interpreter {
     decrement() {
         this.memory[this.pointer] -= 1;
     }
+
+    readChar() {
+        let char = String.fromCharCode(this.memory[this.pointer]);
+        console.log(char);
+    }
 }
