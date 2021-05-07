@@ -2,10 +2,12 @@
 class Interpreter {
     memory: any[];
     pointer: number;
+    code: string;
 
     constructor() {
         this.memory = new Array(30000).fill(0);
         this.pointer = 0;
+        this.code = "";
     }
 
     moveRight() {
