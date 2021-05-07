@@ -1,13 +1,15 @@
 
 class Interpreter {
     memory: any[];
-    pointer: number;
     code: string;
+    pointer: number;
+    instruction_pointer: number;
 
     constructor() {
         this.memory = new Array(30000).fill(0);
-        this.pointer = 0;
         this.code = "";
+        this.pointer = 0;
+        this.instruction_pointer = 0;
     }
 
     moveRight() {
