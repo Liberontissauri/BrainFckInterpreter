@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "liberontissauri",
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "dependencies": {
     "typescript": "^4.2.4"
   }
