@@ -1,14 +1,17 @@
 
 class Interpreter {
-    memory: any[];
+    memory: number[];
     code: string;
     pointer: number;
     instruction_pointer: number;
 
     constructor() {
-        this.memory = new Array(30000).fill(0);
+        this.memory = new Array(30000);
+        for (let index = 0; index < this.memory.length; index++) {
+            this.memory[index] = 0;
+        }
         this.code = "";
-        this.pointer = 0;
+        this.pointer = 15000;
         this.instruction_pointer = 0;
     }
 
@@ -17,9 +20,7 @@ class Interpreter {
     }
 
     moveLeft() {
-        if (this.pointer = 0) return;
-
-        this.pointer += 1;
+        this.pointer -= 1;
     }
 
     increment() {
@@ -32,25 +33,39 @@ class Interpreter {
 
     readChar() {
         let char = String.fromCharCode(this.memory[this.pointer]);
-        this.pointer += 1;
         console.log(char);
     }
 
     loopStart() {
-        if(this.memory[this.pointer] != 0) return this.pointer += 1;
+        if(this.memory[this.pointer] != 0) {
+            return;
+        };
         
-        while(this.code.charAt(this.instruction_pointer) != "]") {
+        let bracket_counter = 0;
+
+        while(this.code.charAt(this.instruction_pointer) != "]" || bracket_counter == 0) {
+            
+            
             this.instruction_pointer += 1;
-            this.executeInstruction();
+            if (this.code.charAt(this.instruction_pointer) == "[") bracket_counter += 1;
+            else if (this.code.charAt(this.instruction_pointer) == "]") bracket_counter -= 1
+            
+            
         }
+        return;
     }
 
     loopEnd() {
-        if(this.memory[this.pointer] == 0) return this.pointer += 1;
+        if(this.memory[this.pointer] == 0) return;
 
-        while(this.code.charAt(this.instruction_pointer) != "[") {
+        let bracket_counter = 0;
+
+        while(this.code.charAt(this.instruction_pointer) != "[" && bracket_counter == 0) {
             this.instruction_pointer -= 1;
+            if (this.code.charAt(this.instruction_pointer) == "]") bracket_counter += 1;
+            else if (this.code.charAt(this.instruction_pointer) == "[") bracket_counter -= 1
         }
+        return;
     }
 
     executeInstruction() {
@@ -86,4 +101,13 @@ class Interpreter {
 
         this.executeInstruction();
     }
+
+    loadCode(code: string) {
+        this.code = code;
+        this.instruction_pointer = 0;
+        
+        this.executeInstruction()
+    }
 }
+
+let brain = new Interpreter();
