@@ -4,6 +4,9 @@ class Interpreter {
     code: string;
     pointer: number;
     instruction_pointer: number;
+    loopStartIndex: number;
+    isLooping: boolean;
+    bracketCounter: number;
 
     constructor() {
         this.memory = new Array(30000);
@@ -13,6 +16,10 @@ class Interpreter {
         this.code = "";
         this.pointer = 15000;
         this.instruction_pointer = 0;
+
+        this.loopStartIndex = 0;
+        this.isLooping = false;
+        this.bracketCounter = 0;
     }
 
     moveRight() {
@@ -37,35 +44,45 @@ class Interpreter {
     }
 
     loopStart() {
-        if(this.memory[this.pointer] != 0) {
-            return;
-        };
-        
-        let bracket_counter = 0;
+        this.bracketCounter = 0;
 
-        while(this.code.charAt(this.instruction_pointer) != "]" || bracket_counter == 0) {
-            
-            
-            this.instruction_pointer += 1;
-            if (this.code.charAt(this.instruction_pointer) == "[") bracket_counter += 1;
-            else if (this.code.charAt(this.instruction_pointer) == "]") bracket_counter -= 1
-            
-            
+        if(this.memory[this.pointer] == 0) {
+
+            while(true) {
+                this.instruction_pointer += 1;
+                if(this.code.charAt(this.instruction_pointer) == "[") this.bracketCounter += 1;
+                else if(this.code.charAt(this.instruction_pointer) == "]") this.bracketCounter -= 1;
+
+                if(this.code.charAt(this.instruction_pointer) == "]" && this.bracketCounter == -1) {
+                    break;
+                }
+            }
+
         }
+
         return;
+
     }
 
     loopEnd() {
-        if(this.memory[this.pointer] == 0) return;
+        this.bracketCounter = 0;
 
-        let bracket_counter = 0;
+        if(this.memory[this.pointer] != 0) {
 
-        while(this.code.charAt(this.instruction_pointer) != "[" && bracket_counter == 0) {
-            this.instruction_pointer -= 1;
-            if (this.code.charAt(this.instruction_pointer) == "]") bracket_counter += 1;
-            else if (this.code.charAt(this.instruction_pointer) == "[") bracket_counter -= 1
+            while(true) {
+                this.instruction_pointer -= 1;
+                if(this.code.charAt(this.instruction_pointer) == "]") this.bracketCounter += 1;
+                else if(this.code.charAt(this.instruction_pointer) == "[") this.bracketCounter -= 1;
+
+                if(this.code.charAt(this.instruction_pointer) == "[" && this.bracketCounter == -1) {
+                    break;
+                }
+            }
+
         }
+
         return;
+
     }
 
     executeInstruction() {
