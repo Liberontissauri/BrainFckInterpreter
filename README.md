@@ -13,6 +13,7 @@ This website is a brainf*ck interpreter implementation written in typescript.
 
 - The memory is an Array of length 30 000 of numbers;
 - The pointer value begins in the position 15 000;
+- Max loop iterations are currently limited by the maximum call stack of the browser in use;
 - Only 7 of the 8 basic instructions are currently implemented:
 </br>
 
