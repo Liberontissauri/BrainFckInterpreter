@@ -1,5 +1,6 @@
 <template>
   <div class="background-black">
+    <navBar></navBar>
     <div id="title-div">
       <main-title text="BrainFuck"/>
       <main-title id="bottom-title" text="Interpreter"/>
@@ -10,12 +11,14 @@
 
 <script>
 import mainTitle from "../components/mainTitle"
+import navBar from "../components/navBar"
 
 
 export default {
   name: 'Home',
   components: {
-    mainTitle
+    mainTitle,
+    navBar
   }
 }
 </script>
