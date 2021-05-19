@@ -4,6 +4,7 @@
     <div id="title-div">
       <main-title text="BrainFuck"/>
       <main-title id="bottom-title" text="Interpreter"/>
+      <brainButton id="start-button" text="Start Coding"/>
     </div>
     
   </div>
@@ -12,13 +13,15 @@
 <script>
 import mainTitle from "../components/mainTitle"
 import navBar from "../components/navBar"
+import brainButton from "../components/brainButton"
 
 
 export default {
   name: 'Home',
   components: {
     mainTitle,
-    navBar
+    navBar,
+    brainButton
   }
 }
 </script>
@@ -43,5 +46,10 @@ export default {
 
   .title-div {
 
+  }
+
+  #start-button {
+    position: relative;
+    top: 19vh
   }
 </style>
