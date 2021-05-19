@@ -36,5 +36,9 @@ export default {
         font-size: 20pt;
         text-decoration: none;
         color: #e8e2d9;
+        transition: color ease-in 0.1s;
+    }
+    .navbar-ul a:hover {
+        color: #e8e2d9cc;
     }
 </style>
