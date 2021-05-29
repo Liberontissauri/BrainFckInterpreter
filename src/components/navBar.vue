@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-div">
     <ul class="navbar-ul">
-        <li><a href="/about">about</a></li>
+        <li><a @click="$router.push('about')">about</a></li>
         <li><a target="_blank" href="https://github.com/Liberontissauri/BrainFckInterpreter">github</a></li>
     </ul>
   </div>
@@ -39,6 +39,7 @@ export default {
         transition: color ease-in 0.1s;
     }
     .navbar-ul a:hover {
+        cursor: pointer;
         color: #e8e2d9cc;
     }
 </style>
