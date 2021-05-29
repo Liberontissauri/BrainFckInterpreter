@@ -4,7 +4,7 @@
     <div id="title-div">
       <main-title text="BrainFuck"/>
       <main-title id="bottom-title" text="Interpreter"/>
-      <brainButton id="start-button" text="Start Coding"/>
+      <brainButton id="start-button" text="Start Coding" @click="$router.push('interpreter')"/>
     </div>
     
   </div>

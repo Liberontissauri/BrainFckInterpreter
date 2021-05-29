@@ -7,8 +7,9 @@ class Interpreter {
     loopStartIndex: number;
     isLooping: boolean;
     bracketCounter: number;
+    outputFunction: Function;
 
-    constructor() {
+    constructor(outputFunction: Function = char => console.log(char)) {
         this.memory = new Array(30000);
         for (let index = 0; index < this.memory.length; index++) {
             this.memory[index] = 0;
@@ -20,6 +21,8 @@ class Interpreter {
         this.loopStartIndex = 0;
         this.isLooping = false;
         this.bracketCounter = 0;
+
+        this.outputFunction = outputFunction;
     }
 
     moveRight() {
@@ -40,7 +43,7 @@ class Interpreter {
 
     readChar() {
         let char = String.fromCharCode(this.memory[this.pointer]);
-        console.log(char);
+        this.outputFunction(char)
     }
 
     loopStart() {
@@ -127,4 +130,4 @@ class Interpreter {
     }
 }
 
-let brain = new Interpreter();
+export default Interpreter
