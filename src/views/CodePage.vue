@@ -5,7 +5,7 @@
     <codeOutput id="code-input" :text="output_code"></codeOutput>
     <div id="code-buttons-div">
       <brainButton text="Run" @click="executeCode" class="code-button"> </brainButton>
-      <brainButton text="Clear Output" class="code-button"> </brainButton>
+      <brainButton text="Clear Output" @click="clearOutput" class="code-button"> </brainButton>
     </div>
   </div>
 </template>
@@ -40,6 +40,9 @@ export default {
       },
       addOutput(char) {
         this.output_code = this.output_code + char;
+      },
+      clearOutput() {
+        this.output_code = "";
       }
     }
     
