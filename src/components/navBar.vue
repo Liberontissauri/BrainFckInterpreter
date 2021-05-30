@@ -1,6 +1,8 @@
 <template>
   <div class="navbar-div">
     <ul class="navbar-ul">
+        <li><a @click="$router.push('/')">Home</a></li>
+        <li><a @click="$router.push('interpreter')">Interpreter</a></li>
         <li><a @click="$router.push('about')">about</a></li>
         <li><a target="_blank" href="https://github.com/Liberontissauri/BrainFckInterpreter">github</a></li>
     </ul>
