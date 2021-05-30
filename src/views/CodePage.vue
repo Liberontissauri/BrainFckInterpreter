@@ -20,7 +20,7 @@ import Interpreter from "../brainfuck"
 export default {
     data: function() {
       return {
-        input_code: "",
+        input_code: "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
         output_code: ""
       }
     },
