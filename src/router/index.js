@@ -5,7 +5,7 @@ import Interpreter from '../views/CodePage.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
