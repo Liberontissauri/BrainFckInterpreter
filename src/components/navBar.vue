@@ -52,7 +52,8 @@ export default {
             padding:  0;
         }
         .navbar-ul a {
-            font-size: 15pt;
+            font-size: 16pt;
+            margin: 10px;
         }
         .navbar-div {
             display: flex;
@@ -61,7 +62,8 @@ export default {
             position: absolute;
             top: 0;
 
-            width: 100%;
+            width: 90%;
+            padding: 0 5%;
             height: 100px;
         }
     }
