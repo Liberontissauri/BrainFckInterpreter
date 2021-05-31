@@ -30,7 +30,7 @@ export default {
         list-style-type: none;
         display: flex;
         flex-direction: row;
-        padding:  0 100px;
+        padding:  0 40px;
     }
     .navbar-ul a {
         margin: 20px;
