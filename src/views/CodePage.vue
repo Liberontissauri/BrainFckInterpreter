@@ -94,5 +94,10 @@ export default {
       border-width: 2px;
       margin-right: 20px;
     }
+
+    #code-buttons-div {
+    position: relative;
+    top: 40px;
+  }
   }
 </style>
