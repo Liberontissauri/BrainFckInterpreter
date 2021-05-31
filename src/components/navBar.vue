@@ -44,4 +44,25 @@ export default {
         cursor: pointer;
         color: #e8e2d9cc;
     }
+
+
+    @media screen and (max-width: 600px) {
+        .navbar-ul {
+
+            padding:  0;
+        }
+        .navbar-ul a {
+            font-size: 15pt;
+        }
+        .navbar-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+
+            width: 100%;
+            height: 100px;
+        }
+    }
 </style>
