@@ -84,4 +84,15 @@ export default {
     border-width: 2px;
     margin-right: 20px;
   }
+
+
+  @media screen and (max-width: 900px) {
+    .code-button {
+      width: 30%;
+      height: 70px;
+      font-size: 16pt;
+      border-width: 2px;
+      margin-right: 20px;
+    }
+  }
 </style>
