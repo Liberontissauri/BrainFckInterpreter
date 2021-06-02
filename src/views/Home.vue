@@ -54,4 +54,10 @@ export default {
     position: relative;
     top: 19vh
   }
+
+    @media screen and (max-width: 600px) {
+      #start-button {
+        width: 14rem;
+      }
+  }
 </style>
