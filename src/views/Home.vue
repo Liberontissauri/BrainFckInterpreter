@@ -44,8 +44,10 @@ export default {
     bottom: 0.5rem;
   }
 
-  .title-div {
-
+  #title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #start-button {
